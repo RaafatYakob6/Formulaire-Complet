@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> exercise 10 - birthDate between 18 and 40</title>
+    <meta charset="utf-8">
+    <style>
+        #idzoneAffichage {
+            color: blue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .classAffichage {
+            color: red;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 10pt;
+            font-style: italic;
+        }
+    </style>
+    <script type="text/javascript" src="scriptEX10.js"></script>
+</head>
+
+<body onload="javascript:chargerCombosData();">
+    <form name="formulaire">
+        <p>
+            <label for="idNom">Nom</label>
+            <input id="idNom" type="text" name="txtNom" />
+        </p>
+        <p>
+            <label for="idPrenom">Prenom</label>
+            <input id="idPrenom" type="text" name="txtPrenom" />
+        </p>
+        <!--Date De Naissance-->
+        <p>
+            <label for="idAnnee">Date de Naissance</label>
+            <select id="idAnnee" name="cboAnnee" onchange="javascript:SelectionnerMoisAnnee();">
+                <option value="0">Annee</option> 
+            </select>
+            <select name="cboMois" onchange="javascript:SelectionnerMoisAnnee();">
+                <option value="0">Mois</option> 
+            </select>
+            <select name="cboJour">
+                <option value="0">Jour</option> 
+            </select>
+        </p>
+        <p>
+            <label>Sexe</label>
+            <input type="radio" name="radioGender" value="Homme"> Homme
+            <input type="radio" name="radioGender" value="Femme" checked="checked" /> Femme
+
+        </p>
+        <p>
+            <label>Langue</label>
+            <input type="checkbox" name="chkFrancais" value="Francais" />Francais
+            <input type="checkbox" name="chkAnglais" value="Anglais" />Anglais
+            <input type="checkbox" name="chkAutres" value="Autres" onclick="activerAutres();" />Autres
+            <input type="text" name="txtAutres" disabled="disabled" />
+        </p>
+
+        <p>
+            <label for="idECivil">Etat Civil</label>
+            <select name="cboEtatCivil" id="idECivil">
+                <option value="1">Marie(e)</option>
+                <option value="2">Celibataire</option>
+                <option value="3">Conjoint(e) de fait</option>
+                <option value="4">Veuf(ve)</option>
+                <option value="5">Divorce(e)</option>
+            </select>
+        </p>
+
+        <fieldset>
+            <legend>Adresse</legend>
+            <p>
+                <label for="idApp">App</label>
+                <input id="iaApp" type="text" name="txtApp" size="4" />
+                <label for="idNumero">Numero</label>
+                <input id="idNumero" type="text" name="txtNumero" size="10" />
+                <label for="idRue">Rue</label>
+                <input id="idRue" type="text" name="txtRue" size="15" />
+            </p>
+            <p>
+                <label for="idVille">Ville</label>
+                <input id="idVille" type="text" name="txtVille" size="25" />
+
+                <label for="idProvince">Province</label>
+                <select id="idProvince" name="cboProvince">
+                    <option value="1">Alberta</option>
+                    <option value="2">Colombie Britannique</option>
+                    <option value="3">Ile du Prince Edouard</option>
+                    <option value="4">Manitoba</option>
+                    <option value="5">Nouveau-Brunswick</option>
+                    <option value="6">Nouveau-Ecosse</option>
+                    <option value="7">Ontario</option>
+                    <option value="9" selected="selected">Quebec</option>
+                    <option value="10">Saskatchawan</option>
+                </select>
+                <label for="idCodePostal">Code Postal</label>
+                <input id="idCodePostal" type="text" name="txtCodePostal" size="8" />
+            </p>
+        </fieldset>
+        <label for="idCommentaire">Vos Commentaires</label><br/>
+        <textarea id="idCommentaire" name="txtCommentaire" cols="80" rows="10"></textarea><br/>
+        <p>
+            <label for="idPhoto">Votre Photo</label>
+            <input id="idPhoto" type="file" name="txtPhoto" />
+        </p>
+        <input type="button" value="Enregister" onclick="valider();" />
+        <input type="reset" value="Annuler" />
+        <input type="button" value="Refresh Page" onclick="document.location.reload(true);">
+
+    </form>
+    <div id="idzoneAffichage">
+        Nom et Prenom : <span id="idAffichageNomPrenom" class="classAffichage">XXX</span><br/> Date de Naissance : <span id="idAffichageDateDeNaissance" class="classAffichage">XXX</span><br/> Adresse: <span id="idAffichageAdresse" class="classAffichage">XXX</span><br/>        Etat Civil : <span id="idAffichageEtatCivil" class="classAffichage">XXX</span><br/> Sexe : <span id="idAffichageSexe" class="classAffichage">XXXX</span><br/> Langues Parlees : <span id="idAffichageLanguesParlee" class="classAffichage">XXX</span><br/>        Votre Commentaire : <span id="idAffichageCommentaire" class="classAffichage">XXX</span><br/> Votre Photo : <br/>
+        <img id="idAffichagePhoto" />
+    </div>
+
+</body>
+
+</html>
